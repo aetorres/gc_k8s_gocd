@@ -1,0 +1,18 @@
+###############Creacion del ambiente en GC ############################
+
+1st. We gonna need a GC Project and permissions to Kubernetes API for that project 
+
+
+gcloud init 
+Ejecutar terrafom
+Conectarse al cluster de Kubernetes 
+  gcloud container clusters get-credentials k8s-gocd-cluster --zone us-central1-a --project k8s-gocd3
+Iniciar helm
+  helm init
+Instalar despliegue 
+  helm install --name my-release incubator/gocd
+Exponer puerto
+  kubectl expose deployment my-release-gocd-server --type=LoadBalancer --name=my-loadbalancer
+Listar puesto expuesto
+  kubectl get services
+
