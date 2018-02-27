@@ -13,10 +13,11 @@ You'll need this tools installed and configurated to acomplish this task
 2. [Terraform  => v.0.10.8](https://www.terraform.io/)
 3. [Google Cloud SDK => 190.0.1](https://cloud.google.com/sdk/)
 4. A [Google Cloud account](https://cloud.google.com/)
-5. A project created on Google Cloud.
-6. Change the project name used for your own project name. 
-7. Download the connection json file from Google Cloud that you can see how to generate in [Json generation file](https://www.terraform.io/docs/providers/google/index.html#authentication-json-file) 
-8. Create a `user.txt` file and a `password.txt` file in the ROOT folder to configure the access to the cluster. This user and password will be encrypted later by kubernetes.
+5. Python v2.7.X
+6. A project created on Google Cloud.
+7. Change the project name used for your own project name. 
+8. Download the connection json file from Google Cloud that you can see how to generate in [Json generation file](https://www.terraform.io/docs/providers/google/index.html#authentication-json-file) 
+9. Create a `user.txt` file and a `password.txt` file in the ROOT folder to configure the access to the cluster. This user and password will be encrypted later by kubernetes.
 
     Example for `user.txt`
         
