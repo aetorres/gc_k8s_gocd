@@ -4,7 +4,7 @@
     kubectl create secret generic user-pass --from-file=./username.txt --from-file=./password.txt
     helm init
     sleep 80
-    helm install --name my-release -f values.yaml incubator/gocd 
+    helm install --name my-release  incubator/gocd 
     kubectl expose deployment my-release-gocd-server --type=LoadBalancer --name=my-loadbalancer
     kubectl get services
     sleep 100
