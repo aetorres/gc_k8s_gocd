@@ -2,6 +2,7 @@
 # Compiled files
 *.tfstate
 *.tfstate.backup
-
+account.json
+*.txt
 # Module directory
 .terraform/

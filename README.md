@@ -16,6 +16,11 @@ You'll need this tools installed and configurated to acomplish this task
 5. A project created on Google Cloud
 6. Change the project name used if you want 
 7. Download the connection json file from Google Cloud that you can see how to generate in [Json generation file](https://www.terraform.io/docs/providers/google/index.html#authentication-json-file) 
+8. Create a `user.txt` file and a `password.txt` file to configure the access to the cluster. This user and password will be encrypted later by kubernetes.
+
+    Example for `user.txt`
+        
+        user_admin
 
 Steps to depoy this recipe
 ---------------------------
@@ -25,8 +30,10 @@ Steps to depoy this recipe
 3. Execute `terraform plan` to generate and show an execution plan
 4. Execute `terraform apply` to execute the deploy on Google Cloud
 5. After this execution you'll need to execute a bash script located in the project folder `./kube.sh`
-6. Verify the Expose Ip that shows the execution of the last command and then you could access to [Go CD](https://www.gocd.org/).
-7. If you want to destroy the Infrastructure execute `terraform destroy`
+6. Verify the Expose Ip that shows the execution of the last command and then you could access to [Go CD](https://www.gocd.org/). If it doesn't shows the IP execute `kubectl get services` and use the exposed IP.
+7. Once you have the exposed IP edit the file `scripts/pipeline.py` and chage the IP that appear in the file by the new exposed IP and then execute `python pipeline.py` to deploy the pipeline on the server.
+8. Using the GoCD GUI enable the agent and create a new Environment so the pipeline could be tested.
+9. If you want to destroy the Infrastructure execute `terraform destroy`
 
 
 # More Information?
