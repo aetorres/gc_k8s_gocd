@@ -14,10 +14,11 @@ You'll need this tools installed and configurated to acomplish this task
 3. [Google Cloud SDK => 190.0.1](https://cloud.google.com/sdk/)
 4. A [Google Cloud account](https://cloud.google.com/)
 5. Python v2.7.X
-6. A project created on Google Cloud.
-7. Change the project name used for your own project name. 
-8. Download the connection json file from Google Cloud that you can see how to generate in [Json generation file](https://www.terraform.io/docs/providers/google/index.html#authentication-json-file) 
-9. Create a `user.txt` file and a `password.txt` file in the ROOT folder to configure the access to the cluster. This user and password will be encrypted later by kubernetes.
+6. Helm, the [Kubernetes Package Manager](https://github.com/kubernetes/helm#install) 
+7. A project created on Google Cloud.
+8. Change the project name used for your own project name. 
+9. Download the connection json file from Google Cloud that you can see how to generate in [Json generation file](https://www.terraform.io/docs/providers/google/index.html#authentication-json-file) 
+10. Create a `user.txt` file and a `password.txt` file in the ROOT folder to configure the access to the cluster. This user and password will be encrypted later by kubernetes.
 
     Example for `user.txt`
         
@@ -30,7 +31,7 @@ Steps to depoy this recipe
 2. From the project folder execute `terraform init` to initialize terraform and download the dependencies.
 3. Execute `terraform plan` to generate and show an execution plan.
 4. Execute `terraform apply` to execute the deploy on Google Cloud.
-5. After this execution you'll need to execute a bash script located in the project folder `./kube.sh`.
+5. After this execution you'll need to execute a bash script located in the project folder `./kube.sh`. If you have permission errors on the execution execute it as sudo `sudo ./kube.sh`.
 6. Verify the Expose Ip that shows the execution of the last command and then you could access to [Go CD](https://www.gocd.org/). If it doesn't shows the IP execute `kubectl get services` and use the exposed IP from `my-loadbalancer`.
 7. Once you have the exposed IP edit the file `scripts/pipeline.py` and chage the IP that appear in the file by the new exposed IP and then, from the pipeline directory execute `python pipeline.py` to deploy the pipeline on the server.
 8. Using the GoCD GUI enable the agent and create a new Environment, on the Environment creation add the pipeline and the agent to it, so the pipeline could be tested.

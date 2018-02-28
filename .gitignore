@@ -6,3 +6,6 @@ account.json
 *.txt
 # Module directory
 .terraform/
+.idea/
+Vagrantfile
+.vagrant/
